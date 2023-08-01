@@ -1,11 +1,11 @@
 import AzureADProvider from 'next-auth/providers/azure-ad';
-import { AuthOptions } from 'next-auth';
+import { AuthOptions, NextAuthOptions } from 'next-auth';
 import GitHubProvider from 'next-auth/providers/github';
-import { clientPromise } from '@/services/db';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 import { getUser } from '@/middleware';
+import { clientPromise } from '@/services/db';
 
-export const authOptions: AuthOptions = {
+export const authOptions: NextAuthOptions = {
   debug: true,
   secret: process.env.NEXTAUTH_SECRET,
   session: { strategy: 'jwt' },
